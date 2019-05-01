@@ -1,5 +1,6 @@
 package com.example.cs125finalprojectpatrickquinn;
 
+import android.media.MediaPlayer;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -43,11 +44,13 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate() : started.");
         ImageView firstimage = (ImageView) findViewById(R.id.firstimage);
 
-        int imageResource = getResources().getIdentifier("@drawable/shaq", null, this.getPackageName());
+        int imageResource = getResources().getIdentifier("@drawable/geoffchallen", null, this.getPackageName());
         firstimage.setImageResource(imageResource);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.yes_kj);
+        mediaPlayer.start();
     }
 }
